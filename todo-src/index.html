@@ -3,6 +3,7 @@
 
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -31,6 +32,22 @@
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
           <span>{{do}}</span>
+            <select class="form-control">
+              <option value="one">Now</option>
+              <option value="two">Tomorrow</option>
+              <option value="three">Next Week</option>
+              <option value="four">Later</option>
+            </select>
+          <!--<div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle pull-left" type="button" data-toggle="dropdown" id="priority">Set Priority
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a href="#">Now</a></li>
+              <li><a href="#">Tomorrow</a></li>
+              <li><a href="#">Next Week</a></li>
+              <li><a href="#">Later</a></li>
+            </ul>
+          </div> -->
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
