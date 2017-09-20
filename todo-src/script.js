@@ -5,7 +5,8 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
-  
+  $scope.completed = [];
+
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
@@ -13,14 +14,28 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.newItem = "";
     }
   }
-    
+
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
-  
+
+  $scope.completeItem = function(item){
+    console.log("in complete");
+    var index = $scope.todos.indexOf(item);
+    $scope.completed.push($scope.todos[index]);
+	$scope.todos.splice(index, 1);
+  }
+
+
+  $scope.clearCompleted = function(){
+    console.log( "preparing to delete completed" );
+    $scope.completed = [];
+    console.log( "cleared completed list" );
+  }
+
+
 });
 
 /*************************
@@ -32,5 +47,5 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
+ *
  * *********************/
